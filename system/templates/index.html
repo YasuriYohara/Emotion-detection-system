@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection from Facial Expressions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>😊 Emotion Detection System</h1>
+            <p class="subtitle">Analyze facial expressions using AI-powered deep learning</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Upload Facial Image</h2>
+                <p class="description">
+                    Upload a clear photograph containing a frontal face. The system will analyze 
+                    the facial expression and predict the dominant emotion.
+                </p>
+
+                {% if error %}
+                <div class="alert alert-error">
+                    <span class="alert-icon">⚠️</span>
+                    <span>{{ error }}</span>
+                </div>
+                {% endif %}
+
+                <form action="/predict" method="POST" enctype="multipart/form-data" id="uploadForm">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">
+                            <label for="imageInput" class="file-label">Choose a file</label>
+                            or drag and drop
+                        </p>
+                        <p class="upload-hint">JPEG or PNG (max 10MB)</p>
+                        <input type="file" name="image" id="imageInput" accept="image/jpeg,image/jpg,image/png" required>
+                    </div>
+
+                    <div id="preview" class="preview-container" style="display: none;">
+                        <img id="previewImage" src="" alt="Preview">
+                        <button type="button" class="btn-remove" onclick="removeImage()">Remove</button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <span class="btn-text">Detect Emotion</span>
+                        <span class="btn-loader" style="display: none;">Processing...</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="info-section">
+                <h3>Supported Emotions</h3>
+                <div class="emotions-grid">
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😊</span>
+                        <span>Happiness</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😢</span>
+                        <span>Sadness</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😠</span>
+                        <span>Anger</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😨</span>
+                        <span>Fear</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😲</span>
+                        <span>Surprise</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">🤢</span>
+                        <span>Disgust</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-emoji">😐</span>
+                        <span>Neutral</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>How It Works</h3>
+                <ol class="steps-list">
+                    <li>Upload a facial photograph (JPEG or PNG format)</li>
+                    <li>The system detects the face using computer vision</li>
+                    <li>A deep learning model analyzes the facial expression</li>
+                    <li>The predicted emotion and confidence score are displayed</li>
+                    <li>Your image is processed temporarily and immediately deleted</li>
+                </ol>
+            </div>
+
+            <div class="info-section">
+                <h3>Privacy & Security</h3>
+                <ul class="privacy-list">
+                    <li>✓ Images are processed locally and temporarily only</li>
+                    <li>✓ No facial data is stored or transmitted to third parties</li>
+                    <li>✓ Files are automatically deleted after processing</li>
+                    <li>✓ No user registration or personal data collection</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                <strong>PUSL3190 Computing Project</strong><br>
+                BSc (Hons) Computer Security | University of Plymouth<br>
+                Yasuri Y Adhikarai (10953290)
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

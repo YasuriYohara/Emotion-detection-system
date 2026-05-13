@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}Home - EmotionAI{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">✨</span>
+                <span>AI-Powered Emotion Detection</span>
+            </div>
+            <h1 class="hero-title">
+                Decode Human Emotions with 
+                <span class="gradient-text">Advanced AI</span>
+            </h1>
+            <p class="hero-description">
+                Experience cutting-edge facial expression analysis powered by deep learning technology.
+                Accurately detect and classify seven universal emotions in real-time with industry-leading precision.
+            </p>
+            <div class="hero-actions">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('service') }}" class="btn btn-primary btn-large">
+                    Try Now
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary btn-large">
+                    Learn More
+                </a>
+                {% else %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-large">
+                    Get Started Free
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="{{ url_for('login') }}" class="btn btn-secondary btn-large">
+                    Sign In
+                </a>
+                {% endif %}
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">99.2%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Emotions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">&lt;1s</div>
+                    <div class="stat-label">Processing</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-card">
+                <div class="emotions-showcase">
+                    <div class="emotion-showcase-item" style="animation-delay: 0s;">
+                        <span class="showcase-emoji">😊</span>
+                        <span class="showcase-label">Happiness</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 0.2s;">
+                        <span class="showcase-emoji">😢</span>
+                        <span class="showcase-label">Sadness</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 0.4s;">
+                        <span class="showcase-emoji">😠</span>
+                        <span class="showcase-label">Anger</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 0.6s;">
+                        <span class="showcase-emoji">😨</span>
+                        <span class="showcase-label">Fear</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 0.8s;">
+                        <span class="showcase-emoji">😲</span>
+                        <span class="showcase-label">Surprise</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 1s;">
+                        <span class="showcase-emoji">🤢</span>
+                        <span class="showcase-label">Disgust</span>
+                    </div>
+                    <div class="emotion-showcase-item" style="animation-delay: 1.2s;">
+                        <span class="showcase-emoji">😐</span>
+                        <span class="showcase-label">Neutral</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose EmotionAI?</h2>
+            <p class="section-description">
+                Advanced technology meets user-friendly design for unparalleled emotion detection
+            </p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">High Accuracy</h3>
+                <p class="feature-description">
+                    State-of-the-art deep learning models trained on extensive datasets 
+                    ensure precise emotion recognition across diverse facial expressions.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Real-Time Processing</h3>
+                <p class="feature-description">
+                    Lightning-fast analysis with results delivered in under a second, 
+                    optimized for efficiency without compromising accuracy.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacy First</h3>
+                <p class="feature-description">
+                    Your data security is paramount. All images are processed temporarily 
+                    and immediately deleted—no storage, no tracking.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3 class="feature-title">Deep Learning</h3>
+                <p class="feature-description">
+                    Powered by FER and TensorFlow, utilizing cutting-edge neural networks 
+                    for sophisticated facial expression analysis.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Detailed Insights</h3>
+                <p class="feature-description">
+                    Comprehensive emotion breakdown with confidence scores for all seven 
+                    categories, giving you complete transparency.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3 class="feature-title">Universal Access</h3>
+                <p class="feature-description">
+                    Web-based platform accessible from any device with responsive design 
+                    for seamless experience across desktop and mobile.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="process-section">
+    <div class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-description">
+                Simple four-step process from upload to analysis
+            </p>
+        </div>
+        <div class="process-timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Upload Image</h3>
+                    <p class="timeline-description">
+                        Select and upload a clear facial photograph in JPEG or PNG format
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Face Detection</h3>
+                    <p class="timeline-description">
+                        Advanced computer vision algorithms locate and isolate the face
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">AI Analysis</h3>
+                    <p class="timeline-description">
+                        Deep learning model analyzes facial features and expressions
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-connector"></div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Get Results</h3>
+                    <p class="timeline-description">
+                        Receive detailed emotion analysis with confidence scores
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+{% if current_user.is_authenticated %}
+<section class="cta-section">
+    <div class="cta-container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Analyze Emotions?</h2>
+            <p class="cta-description">
+                Start detecting emotions with our advanced AI technology
+            </p>
+            <a href="{{ url_for('service') }}" class="btn btn-white btn-large">
+                Go to Service
+                <span class="btn-arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="cta-section">
+    <div class="cta-container">
+        <div class="cta-content">
+            <h2 class="cta-title">Start Your Free Trial Today</h2>
+            <p class="cta-description">
+                Join thousands using EmotionAI for facial expression analysis
+            </p>
+            <a href="{{ url_for('register') }}" class="btn btn-white btn-large">
+                Create Free Account
+                <span class="btn-arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

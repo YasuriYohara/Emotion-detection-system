@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Detection Result - EmotionAI{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="result-container">
+        <div class="result-header-page">
+            <h1 class="page-title">Analysis Complete</h1>
+            <p class="page-subtitle">Your emotion detection results are ready</p>
+        </div>
+
+        <div class="result-main">
+            <div class="card result-card">
+                <div class="result-header">
+                    <span class="result-emoji">{{ emoji }}</span>
+                    <h2 class="result-emotion">{{ emotion }}</h2>
+                </div>
+
+                <div class="confidence-section">
+                    <div class="confidence-label">
+                        <span>Confidence Level: {{ confidence_level }}</span>
+                        <span class="confidence-value">{{ confidence }}%</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+                    </div>
+                </div>
+
+                {% if not is_confident %}
+                <div class="alert alert-warning">
+                    <span class="alert-icon">⚠️</span>
+                    <span>
+                        <strong>Low Confidence Detection</strong><br>
+                        The model's confidence is below the recommended threshold (40%). 
+                        This may indicate an ambiguous expression, poor image quality, or 
+                        non-frontal face orientation. Consider uploading a clearer image.
+                    </span>
+                </div>
+                {% endif %}
+
+                <div class="scores-section">
+                    <h3>All Emotion Scores</h3>
+                    <div class="scores-list">
+                        {% for emotion_name, score in all_scores.items() %}
+                        <div class="score-item">
+                            <span class="score-label">{{ emotion_name }}</span>
+                            <div class="score-bar-container">
+                                <div class="score-bar" style="width: {{ score }}%"></div>
+                            </div>
+                            <span class="score-value">{{ score }}%</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/" class="btn btn-primary">
+                        ← Analyze Another Image
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Understanding Your Results</h3>
+                <div class="understanding-grid">
+                    <div class="understanding-item">
+                        <h4>Confidence Score</h4>
+                        <p>
+                            Indicates how certain the model is about its prediction. 
+                            Scores above 60% are generally reliable, while scores below 40% 
+                            suggest the expression may be ambiguous or mixed.
+                        </p>
+                    </div>
+                    <div class="understanding-item">
+                        <h4>Emotion Scores</h4>
+                        <p>
+                            Shows the probability distribution across all seven emotion categories. 
+                            The highest score determines the predicted emotion. Secondary emotions 
+                            may indicate mixed or transitional expressions.
+                        </p>
+                    </div>
+                    <div class="understanding-item">
+                        <h4>Best Practices</h4>
+                        <p>
+                            For accurate results, use clear, well-lit photos with frontal face orientation. 
+                            Avoid sunglasses, masks, or heavy shadows. The system works best with 
+                            neutral backgrounds and single-person images.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Technical Notes</h3>
+                <ul class="privacy-list">
+                    <li>Model: FER (Facial Expression Recognition) trained on FER2013 dataset</li>
+                    <li>Detection Method: Haar Cascade with MTCNN fallback</li>
+                    <li>Emotion Categories: 7 universal facial expressions (Ekman & Friesen, 1978)</li>
+                    <li>Processing: Local, temporary, no data retention</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

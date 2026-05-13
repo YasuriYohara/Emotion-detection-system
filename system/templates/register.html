@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - EmotionAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <span class="brand-icon-large">🧠</span>
+                    <h1>EmotionAI</h1>
+                </div>
+                <h2>Create Account</h2>
+                <p>Start analyzing emotions with AI-powered technology</p>
+            </div>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <div class="auth-messages">
+                    {% for category, message in messages %}
+                    <div class="auth-alert auth-alert-{{ category }}">
+                        <span class="alert-icon">
+                            {% if category == 'success' %}✓{% elif category == 'error' %}✕{% else %}ℹ{% endif %}
+                        </span>
+                        <span>{{ message }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('register') }}" class="auth-form">
+                <div class="form-group">
+                    <label for="full_name" class="form-label">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="full_name" 
+                        name="full_name" 
+                        class="form-input" 
+                        placeholder="Enter your full name"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        class="form-input" 
+                        placeholder="Choose a username"
+                        required
+                        autofocus
+                    >
+                    <span class="form-hint">At least 3 characters, letters, numbers, and underscores only</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input" 
+                        placeholder="Create a strong password"
+                        required
+                    >
+                    <span class="form-hint">Minimum 6 characters</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirm_password" 
+                        name="confirm_password" 
+                        class="form-input" 
+                        placeholder="Re-enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">
+                    Create Account
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="{{ url_for('login') }}" class="auth-link">Sign in here</a></p>
+            </div>
+        </div>
+
+        <div class="auth-decoration">
+            <div class="decoration-circle decoration-circle-1"></div>
+            <div class="decoration-circle decoration-circle-2"></div>
+            <div class="decoration-circle decoration-circle-3"></div>
+        </div>
+    </div>
+</body>
+</html>

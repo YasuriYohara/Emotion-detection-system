@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{% block title %}About - EmotionAI{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-header">
+            <h1 class="page-title">About EmotionAI</h1>
+            <p class="page-subtitle">
+                Advanced emotion detection powered by state-of-the-art deep learning technology
+            </p>
+        </div>
+
+        <div class="about-content">
+            <!-- Project Overview -->
+            <div class="content-card">
+                <h2 class="content-title">Project Overview</h2>
+                <p class="content-text">
+                    EmotionAI is a cutting-edge web-based application designed for accurate emotion detection
+                    from facial expressions. Leveraging advanced deep learning models and computer vision 
+                    algorithms, our system can identify and classify seven universal emotions with remarkable 
+                    precision and speed.
+                </p>
+                <p class="content-text">
+                    This project represents the culmination of extensive research in affective computing, 
+                    combining modern AI frameworks with user-centric design principles to deliver a 
+                    professional-grade emotion analysis tool.
+                </p>
+            </div>
+
+            <!-- Technology Stack -->
+            <div class="content-card">
+                <h2 class="content-title">Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">🐍</div>
+                        <div class="tech-details">
+                            <h3>Python 3.10</h3>
+                            <p>Core programming language</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🌐</div>
+                        <div class="tech-details">
+                            <h3>Flask 2.3</h3>
+                            <p>Lightweight web framework</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🧠</div>
+                        <div class="tech-details">
+                            <h3>TensorFlow 2.16</h3>
+                            <p>Deep learning framework</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">👁️</div>
+                        <div class="tech-details">
+                            <h3>OpenCV 4.8</h3>
+                            <p>Computer vision library</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">😊</div>
+                        <div class="tech-details">
+                            <h3>FER Library</h3>
+                            <p>Facial expression recognition</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎯</div>
+                        <div class="tech-details">
+                            <h3>MTCNN</h3>
+                            <p>Face detection fallback</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="content-card">
+                <h2 class="content-title">Key Features</h2>
+                <div class="features-list">
+                    <div class="feature-item-detailed">
+                        <div class="feature-number">01</div>
+                        <div class="feature-content">
+                            <h3>High-Precision Detection</h3>
+                            <p>
+                                Our deep learning models, trained on extensive datasets including FER2013,
+                                achieve industry-leading accuracy in emotion classification across diverse
+                                facial expressions and demographics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item-detailed">
+                        <div class="feature-number">02</div>
+                        <div class="feature-content">
+                            <h3>Multi-Model Architecture</h3>
+                            <p>
+                                Implements both Haar Cascade and MTCNN for robust face detection, ensuring
+                                reliable performance across varying image qualities and lighting conditions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item-detailed">
+                        <div class="feature-number">03</div>
+                        <div class="feature-content">
+                            <h3>Privacy-Centric Design</h3>
+                            <p>
+                                Temporary-only processing with immediate file deletion ensures complete privacy.
+                                No user data is stored, transmitted, or shared with third parties.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feature-item-detailed">
+                        <div class="feature-number">04</div>
+                        <div class="feature-content">
+                            <h3>Confidence Scoring</h3>
+                            <p>
+                                Transparent confidence metrics provide clear indication of prediction certainty,
+                                with detailed breakdowns across all seven emotion categories.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supported Emotions -->
+            <div class="content-card">
+                <h2 class="content-title">Emotion Categories</h2>
+                <p class="content-text">
+                    Based on Paul Ekman's universal emotions theory, our system detects seven fundamental 
+                    facial expressions:
+                </p>
+                <div class="emotions-detailed-grid">
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😊</span>
+                        <h3>Happiness</h3>
+                        <p>Joy, contentment, pleasure</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😢</span>
+                        <h3>Sadness</h3>
+                        <p>Sorrow, grief, melancholy</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😠</span>
+                        <h3>Anger</h3>
+                        <p>Frustration, irritation, rage</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😨</span>
+                        <h3>Fear</h3>
+                        <p>Anxiety, worry, apprehension</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😲</span>
+                        <h3>Surprise</h3>
+                        <p>Astonishment, amazement, shock</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">🤢</span>
+                        <h3>Disgust</h3>
+                        <p>Revulsion, aversion, distaste</p>
+                    </div>
+                    <div class="emotion-detailed">
+                        <span class="emotion-icon-large">😐</span>
+                        <h3>Neutral</h3>
+                        <p>Calm, impassive, balanced</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Info -->
+            <div class="content-card academic-card">
+                <h2 class="content-title">Academic Project</h2>
+                <div class="academic-details">
+                    <div class="academic-item">
+                        <strong>Project Code:</strong>
+                        <span>PUSL3190 Computing Project</span>
+                    </div>
+                    <div class="academic-item">
+                        <strong>Program:</strong>
+                        <span>BSc (Hons) Computer Security</span>
+                    </div>
+                    <div class="academic-item">
+                        <strong>Institution:</strong>
+                        <span>University of Plymouth</span>
+                    </div>
+                    <div class="academic-item">
+                        <strong>Student:</strong>
+                        <span>Yasuri Y Adhikarai (10953290)</span>
+                    </div>
+                    <div class="academic-item">
+                        <strong>Year:</strong>
+                        <span>2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methodology -->
+            <div class="content-card">
+                <h2 class="content-title">Development Methodology</h2>
+                <p class="content-text">
+                    This project follows an Agile development approach with iterative sprints, incorporating:
+                </p>
+                <ul class="methodology-list">
+                    <li>📋 Continuous requirements gathering and refinement</li>
+                    <li>🔄 Iterative development and testing cycles</li>
+                    <li>📊 Performance evaluation and model optimization</li>
+                    <li>🔐 Security-first design principles</li>
+                    <li>👥 User-centric interface development</li>
+                    <li>📈 Continuous integration and deployment</li>
+                </ul>
+            </div>
+
+            <!-- Acknowledgments -->
+            <div class="content-card">
+                <h2 class="content-title">Acknowledgments</h2>
+                <p class="content-text">
+                    This project builds upon the work of numerous researchers and open-source contributors:
+                </p>
+                <ul class="acknowledgments-list">
+                    <li>FER2013 Dataset contributors (Kaggle)</li>
+                    <li>OpenCV development team</li>
+                    <li>FER and DeepFace library maintainers</li>
+                    <li>TensorFlow and Keras communities</li>
+                    <li>Flask framework developers</li>
+                    <li>University of Plymouth faculty and supervisors</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
